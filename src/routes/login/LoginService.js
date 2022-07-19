@@ -1,9 +1,15 @@
 const loginDao = require('./LoginDao');
+const db = require("../../../mysql/index");
 
-function LoginService() {
+
+const dbTest = async () => {
+    const connection = await db.getConnection((err, su) => su);
+    const rows = await connection.query('select * from user');
+
+
+    return rows;
 
 }
-
-console.log(typeof loginDao.selectUser())
-
-// module.exports = new LoginService();
+let a = dbTest();
+console.log(typeof a);
+console.log(a);

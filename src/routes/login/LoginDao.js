@@ -1,7 +1,7 @@
 const db = require('../../../mysql/index.js');
 
 // let a = db.query('select * from board');
-console.log(db);
+
 
 // function LoginDao() {
 //
@@ -37,3 +37,18 @@ console.log(db);
 //     })
 
 // module.exports = new LoginDao();
+
+
+const test = async (func) => {
+    let a = await db.query('select * from user', (err, rows, field) => {
+        // func(a);
+        console.log(rows);
+    })
+    return a;
+}
+
+
+
+
+// let a = test((a) => {return a});
+// console.log(a);
