@@ -1,15 +1,26 @@
 const loginDao = require('./LoginDao');
 const db = require("../../../mysql/index");
 
+let a;
 
-const dbTest = async () => {
-    const connection = await db.getConnection((err, su) => su);
-    const rows = await connection.query('select * from user');
+// db.promise().query('select * from user')
+//     .then(async ([rows, field]) => {
+//         console.log(rows);
+//         a = await rows;
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
 
-
-    return rows;
+function LoginService() {
 
 }
-let a = dbTest();
-console.log(typeof a);
-console.log(a);
+
+LoginService.prototype.loginService = function() {
+    console.log('hello');
+}
+
+const loginService = new LoginService();
+
+// module.exports = LoginService;
+module.exports = loginService;

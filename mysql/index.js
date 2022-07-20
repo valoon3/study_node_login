@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2');
 
 
 // const connection = mysql.createConnection({
@@ -10,7 +10,7 @@ const mysql = require('mysql2/promise');
 //     database: 'board_db',
 // });
 
-const connection = mysql.createPool({
+const connection = mysql.createConnection({
     host: '127.0.0.1',
     port: 3306,
     user: 'root',
@@ -18,8 +18,6 @@ const connection = mysql.createPool({
     connectionLimit: 5,
     database: 'board_db',
 });
-
-
 
 // const test2 = test();
 // test2.query('select * from board', (err, r) => {

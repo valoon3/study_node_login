@@ -47,6 +47,14 @@ const test = async (func) => {
     return a;
 }
 
+function LoginDao() {
+
+}
+
+LoginDao.prototype.login = () => {
+    
+}
+
 
 
 
