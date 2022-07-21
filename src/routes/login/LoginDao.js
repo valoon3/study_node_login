@@ -51,8 +51,14 @@ function LoginDao() {
 
 }
 
-LoginDao.prototype.login = () => {
-    
+LoginDao.prototype.login = (func) => {
+    // db.query('select * from user', (err, rows, field) => {
+    //     console.log(rows);
+    // })
+    db.query('select * from user', (err, rows, field) => {
+        console.log(rows);
+        func(rows);
+    })
 }
 
 
@@ -60,3 +66,9 @@ LoginDao.prototype.login = () => {
 
 // let a = test((a) => {return a});
 // console.log(a);
+
+const loginDao = new LoginDao();
+
+loginDao.login();
+
+module.exports = loginDao;
