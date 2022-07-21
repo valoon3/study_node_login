@@ -54,11 +54,14 @@ function LoginDao() {
 LoginDao.prototype.login = (func) => {
     // db.query('select * from user', (err, rows, field) => {
     //     console.log(rows);
+    //     func(rows);
     // })
-    db.query('select * from user', (err, rows, field) => {
-        console.log(rows);
-        func(rows);
-    })
+    // https://github.com/sidorares/node-mysql2
+    db.promise().query('select * from user') // error 처리 가능하도록 만들자
+        .then(([rows, field]) => {
+            console.log(rows);
+        })
+
 }
 
 
