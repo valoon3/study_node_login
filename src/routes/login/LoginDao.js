@@ -61,6 +61,10 @@ LoginDao.prototype.login = (func) => {
         .then(([rows, field]) => {
             console.log(rows);
         })
+        .catch((err) => {
+
+        })
+        //.then(() => con.end())
 
 }
 
