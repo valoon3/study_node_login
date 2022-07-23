@@ -1,26 +1,16 @@
 const loginDao = require('./LoginDao');
-const db = require("../../../mysql/index");
-
-let a;
-
-// db.promise().query('select * from user')
-//     .then(async ([rows, field]) => {
-//         console.log(rows);
-//         a = await rows;
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     })
 
 function LoginService() {
-
+    this.login = () => {
+        loginDao.login((selectRresult)=> {
+            // 코드 내용
+            console.log(selectRresult);
+        }, {userID: 'asdf', userPassword: 'asdfd'});
+    }
 }
 
-LoginService.prototype.loginService = function() {
-    console.log('hello');
-}
 
 const loginService = new LoginService();
+loginService.login();
 
-// module.exports = LoginService;
 module.exports = loginService;
