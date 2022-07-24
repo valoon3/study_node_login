@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('../mysql/index');
 const app = express();
-const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const port = 8080;
 
 const LoginController = require('../src/routes/login/LoginController');
@@ -11,8 +11,9 @@ app.listen(port, () => {
 })
 
 app.use(express.json());
+app.use(cookieParser());
 
-app.use('/login', LoginController);
+app.use(LoginController);
 
 
 app.get('/', (req, res) => {
