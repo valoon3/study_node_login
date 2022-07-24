@@ -1,5 +1,22 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
+// async function createConnection() {
+//     const connection = await mysql.createConnection({
+//         host: '127.0.0.1',
+//         port: 3306,
+//         user: 'root',
+//         password: '1234',
+//         connectionLimit: 5,
+//         database: 'board_db',
+//     });
+//
+//     const [rows, field] = await connection.execute('select * from user');
+//     console.log('rows!!!', rows);
+//     return rows;
+// }
+
+// const rows = createConnection();
+// console.log(rows.then(r => console.log(r)));
 
 // const connection = mysql.createConnection({
 //     host: '127.0.0.1',
@@ -10,7 +27,7 @@ const mysql = require('mysql2');
 //     database: 'board_db',
 // });
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
     host: '127.0.0.1',
     port: 3306,
     user: 'root',
@@ -19,10 +36,4 @@ const connection = mysql.createConnection({
     database: 'board_db',
 });
 
-// const test2 = test();
-// test2.query('select * from board', (err, r) => {
-//     console.log(r);
-// })
-
-// module.export = test();
 module.exports = connection;

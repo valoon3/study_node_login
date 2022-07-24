@@ -1,16 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../../../mysql/index');
 const loginService = require('./LoginService');
-// const loginService = new LoginService();
 
 // login/
-
-// router.get('/', (req, res) => {
-//     res.send('/login')
-//     console.log('login');
-// })
-
-loginService.loginService();
+router.post('/',async (req, res) => {
+    // res.send('/login');
+    await console.dir(req.body);
+    // await console.dir(req.body);
+    // await console.dir('req : ', req.ReqBody);
+    loginService.login((selectResult) => {
+        console.log(selectResult);
+        res.send(selectResult);
+    }, {});
+    console.log('login');
+})
 
 module.exports = router;
