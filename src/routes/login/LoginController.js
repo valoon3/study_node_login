@@ -4,15 +4,11 @@ const loginService = require('./LoginService');
 
 // login/
 router.post('/',async (req, res) => {
-    // res.send('/login');
-    await console.dir(req.body);
-    // await console.dir(req.body);
-    // await console.dir('req : ', req.ReqBody);
+    console.dir(req.body);
     loginService.login((selectResult) => {
         console.log(selectResult);
         res.send(selectResult);
-    }, {});
-    console.log('login');
+    }, req.body);
 })
 
 module.exports = router;

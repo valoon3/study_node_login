@@ -1,10 +1,6 @@
 const db = require('../../../mysql/index.js');
 
-function LoginDao() {
-
-}
-
-LoginDao.prototype.login = async function(callback, user) {
+const login = async function(callback, user) {
     // https://github.com/sidorares/node-mysql2
     const sql = 'select * from `user` where `userID` = ? and `userPassword` = ?';
 
@@ -12,10 +8,4 @@ LoginDao.prototype.login = async function(callback, user) {
     callback(rows);
 }
 
-const loginDao = new LoginDao();
-
-//
-
-//
-
-module.exports = loginDao;
+module.exports = { login }
