@@ -3,6 +3,10 @@ const router = express.Router();
 const loginService = require('./LoginService');
 
 // login/
+router.get('/login', (req, res) => {
+    // react로 구현할 부분
+})
+
 router.post('/login',async (req, res) => {
     loginService.login((selectResult, cookieStatus) => {
         console.log(selectResult);
