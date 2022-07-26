@@ -15,7 +15,7 @@ const login = function(callback, user, res) {
 
 const logout = function(req, res) {
     try{
-        res.clearCookie('logedIn');
+        res.clearCookie('logedIn'); // 쿠키로 로그인 관리
     }
     catch(err) {
         console.error(err);
