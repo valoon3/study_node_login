@@ -10,7 +10,7 @@ const port = 8080;
 const LoginController = require('../src/routes/login/LoginController');
 
 
-dotenv.config();
+dotenv.config(); // 같은 폴더를 우선으로 본다 //
 
 app.listen(port, () => {
     console.log('앱 실행', port);
