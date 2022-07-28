@@ -16,6 +16,8 @@ app.listen(port, () => {
     console.log('앱 실행', port);
 })
 
+// 미들웨어 내용들 front back 에 넣기
+
 app.use(express.json()); // body json 설정
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
